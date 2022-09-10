@@ -100,17 +100,37 @@ function createThisYearsSecretSantas(listOfSantas) {
     }
     console.log("success");
     let finalResult = drawResult[1];
-    console.log(finalResult);
     return finalResult;
+}
+
+function formatResult(finalResult) {
+    santas = [];
+    recipients = [];
+    formattedResult = "";
+    for(let i = 0; i < finalResult.length; i++) {
+        santa = finalResult[i].name;
+        recipient = finalResult[i].thisYearRecipient;
+        formattedResult += `Santa: ${santa}, Recipient: ${recipient}<br>`;
+    }
+    return formattedResult;
 }
 
 function main() {
     let listOfSantas = createListOfSantas();
-    let finalResult = createThisYearsSecretSantas(listOfSantas);
+    let finalResult;
+    let btn = document.createElement("button");
+    btn.innerHTML = "Generate Secret Santas";
+    btn.onclick = function () {
+        finalResult = createThisYearsSecretSantas(listOfSantas);
+        str = formatResult(finalResult);
+        document.getElementById("secret_santa_list").innerHTML = str;
 
-    //alert(finalResult)
-    str = JSON.stringify(finalResult);
-    document.getElementById("demo").innerHTML = str;
+    };
+    document.body.appendChild(btn);
+    
+    
+    console.log(str);
+
 }
 
 main();
