@@ -43,9 +43,9 @@ function checkRestrictions(santa, potentialChoice) {
 }
 
 function createListOfSantas() {
-    let andy = new Person("Andy", "Amy", "Emily");
+    let andy = new Person("Andy", "Amy", "Alex");
     let amber = new Person("Amber", "Zach", "Sarah");
-    let amy = new Person("Amy", "Andy", "Alex");
+    let amy = new Person("Amy", "Emily", "Alex");
     let alex = new Person("Alex", "Lizeth", "Amber");
     let emily = new Person("Emily", "Xavier", "Zach");
     let lizeth = new Person("Lizeth", "Alex", "NA");
