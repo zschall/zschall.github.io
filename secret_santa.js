@@ -43,17 +43,17 @@ function checkRestrictions(santa, potentialChoice) {
 }
 
 function createListOfSantas() {
-    let andy = new Person("Andy", "Amy", "Alex");
-    let amber = new Person("Amber", "Zach", "Sarah");
-    let amy = new Person("Amy", "Emily", "Alex");
-    let alex = new Person("Alex", "Lizeth", "Amber");
-    let emily = new Person("Emily", "Xavier", "Zach");
+    let andy = new Person("Andy", "Amy", "N/A");
+    let amy = new Person("Amy", "Emily", "N/A");
+    let alex = new Person("Alex", "Lizeth", "N/A");
+    let daniel = new Person("Daniel", "Megan", "N/A");
+    let emily = new Person("Emily", "N/A", "N/A");
     let lizeth = new Person("Lizeth", "Alex", "NA");
-    let michael = new Person("Michael", "Sarah", "NA");
-    let sarah = new Person("Sarah", "Michael", "Amy"); 
-    let zach = new Person("Zach", "Amber", "Andy");
+    let megan = new Person("Megan", "Daniel", "N/A")
+    let sarah = new Person("Sarah", "N/A", "N/A"); 
+    let zach = new Person("Zach", "N/A", "N/A");
     
-    let listOfSantas = [andy, amber, amy, alex, emily, lizeth, michael, sarah, zach];
+    let listOfSantas = [andy, amy, alex, daniel, emily, lizeth, megan, sarah, zach];
     return listOfSantas;
 }
 
@@ -106,12 +106,20 @@ function createThisYearsSecretSantas(listOfSantas) {
 function formatResult(finalResult) {
     santas = [];
     recipients = [];
-    formattedResult = "";
+
+    formattedResult =  "****************<br>";
+    formattedResult += "* Santa* Recipient*<br>";
+    formattedResult += "****************<br>";
+
     for(let i = 0; i < finalResult.length; i++) {
-        santa = finalResult[i].name;
+        let santa = finalResult[i].name;
         recipient = finalResult[i].thisYearRecipient;
-        formattedResult += `Santa: ${santa}, Recipient: ${recipient}<br>`;
+        formattedResult += `* ${santa} * ${recipient} *<br>`;
+        console.log(i);
+
     }
+    formattedResult += "****************<br>";
+
     return formattedResult;
 }
 
@@ -128,13 +136,7 @@ function main() {
     };
     document.body.appendChild(btn);
     
-    
-    console.log(str);
-
 }
 
 main();
-
-
-//amber.thisYearRecipient = "Emily"
 
